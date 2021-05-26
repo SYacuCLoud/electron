@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 50%;
+      }
+      input:required:invalid {
+        border-color: red;
+      }
+      #formSubmit:disabled,
+      #formSubmit:disabled:hover,
+      #formSubmit:disabled:focus {
+        color: white;
+        border-color: gray;
+        background-color: gray;
+        text-decoration: line-through;
+      }
+    </style>
+  </head>
+  <body>
+    <form class="container">
+      <div>
+        <label for="userIdInput">Your Id</label>
+        <input
+          type="text"
+          placeholder="input your id"
+          id="userIdInput"
+          required
+        />
+        <input
+          type="button"
+          style="margin-left: 1%"
+          id="btn-idCheck"
+          value="Id Check"
+        />
+        <label
+          for="btn-idCheck"
+          id="idCheckError"
+          style="visibility: hidden; display: inline"
+        >
+          중복된 아이디 입니다.
+        </label>
+      </div>
+      <div class="row">
+        <div class="four columns">
+          <label for="exampleEmailInput">Your email</label>
+          <input
+            class="u-full-width"
+            type="email"
+            placeholder="test@mailbox.com"
+            id="exampleEmailInput"
+            required
+          />
+        </div>
+        <div class="four columns">
+          <label for="ageInput">Your Age</label>
+          <input
+            class="u-full-width"
+            type="number"
+            id="ageInput"
+            required
+            min="0"
+            max="100"
+          />
+        </div>
+        <div class="four columns">
+          <label for="exampleRecipientInput">Reason for contacting</label>
+          <select class="u-full-width" id="exampleRecipientInput">
+            <option value="Option 1">Questions</option>
+            <option value="Option 2">Admiration</option>
+            <option value="Option 3">Can I get your number?</option>
+          </select>
+        </div>
+      </div>
+      <label for="exampleMessage">Message</label>
+      <textarea
+        class="u-full-width"
+        placeholder="type here"
+        id="exampleMessage"
+      ></textarea>
+      <input
+        class="button-primary"
+        id="formSubmit"
+        type="submit"
+        value="Submit"
+      />
+    </form>
+  </body>
+  <script>
+    document.getElementById("userIdInput").addEventListener("input", (e) => {
+      setVisibileErrorText("hidden");
+    });
+
+    document.getElementById("btn-idCheck").addEventListener("click", (e) => {
+      let id = document.getElementById("userIdInput").value;
+
+      if (!id) {
+        return;
+      }
+
+      fetch("http://localhost:8080/idCheck/" + id)
+        .then((response) => response.text())
+        .then((text) =>
+          text === "duplicated" ? ["visible", true] : ["hidden", false]
+        )
+        .then(([visibility, active]) => {
+          setVisibileErrorText(visibility);
+          toggleSummitButton(active);
+        })
+        .catch((exception) => console.log(exception));
+    });
+
+    function setVisibileErrorText(visibility) {
+      document.getElementById("idCheckError").style.visibility = visibility;
+    }
+
+    function toggleSummitButton(active) {
+      let element = document.getElementById("formSubmit");
+      element.toggleAttribute("disabled", active);
+    }
+  </script>
+</html>

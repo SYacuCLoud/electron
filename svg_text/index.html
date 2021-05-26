@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>안뇽</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Inconsolata");
+
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+      }
+
+      body {
+        background: radial-gradient(
+          circle at 33% 100%,
+          #fed373 4%,
+          #f15245 30%,
+          #d92e7f 62%,
+          #9b36b7 85%,
+          #515ecf
+        );
+        font-family: "Inconsolata";
+        font-weight: bold;
+        font-size: 16vmin;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        fill: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+    <script type="text/javascript" src="odoo.js"></script>
+  </head>
+  <body>
+    <div>
+      <svg width="800" height="800">
+        <text id="text-hello" x="400" y="400">HELLO</text>
+        <animateTransform
+          attributeName="transform"
+          attributeType="XML"
+          xlink:href="#text-hello"
+          type="rotate"
+          from="0 300 400"
+          to="360 300 400"
+          dur="2s"
+          begin="0s"
+          repeatCount="indefinite"
+          fill="freeze"
+        />
+      </svg>
+    </div>
+    <div>
+      <input type="button" onclick="myfunc()" />
+    </div>
+    <script>
+      function myfunc() {
+        var svg = document.getElementsByTagName("svg");
+        svg[0].pauseAnimations();
+      }
+    </script>
+  </body>
+</html>
