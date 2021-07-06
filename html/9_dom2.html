@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="my-div1"></div>
+    <div class="my-div2"></div>
+    <script>
+      document.addEventListener("click", function (e) {
+        console.log("asdf");
+      });
+      $(document).on("click", function (e) {
+        console.log("qqqq");
+      });
+
+      document.querySelector(".my-div1").innerHTML = "asdf";
+      $(".my-div2").html("qqqq");
+    </script>
+  </body>
+</html>

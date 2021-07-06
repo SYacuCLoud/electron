@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      function Person(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      var p1 = new Person("둘리", 55);
+      var p2 = new Person("도우너", 44);
+
+      console.log(p1);
+      console.log(p2);
+
+      class Student {
+        #name;
+        #score;
+        constructor(name, score) {
+          this.#name = name;
+          this.#score = score;
+        }
+      }
+
+      class ExStudent extends Student {
+        constructor(name, score, age) {
+          super(name, score);
+          this.age = age;
+        }
+      }
+
+      var s1 = new Student("학생1", 100);
+      console.log(s1);
+    </script>
+  </body>
+</html>

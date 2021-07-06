@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <form name="my-form" onsubmit="return vali()">
+      <input type="text" name="name" oninput="setCustomValidity('')" />
+      <input type="submit" />
+    </form>
+    <script>
+      function vali() {
+        let name = document.forms["my-form"].elements["name"];
+        if (name.value.length <= 1) {
+          name.setCustomValidity("아이야 2자를 넘게 적어주렴");
+          name.reportValidity();
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>

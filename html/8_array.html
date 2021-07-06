@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      var arr = [];
+      var arr2 = [1, 2, 3];
+      var arr3 = ["a", "b", "c"];
+      var arr4 = [1, "a"];
+
+      arr[0] = 99;
+      arr[5] = 555;
+      console.log(arr, arr.length);
+      arr2[0] = 55;
+      console.log(arr2, arr2.length);
+      arr3.push("d");
+      arr3.unshift("z");
+      arr3.splice(arr3.indexOf("c"), 1);
+      console.log(arr3, arr3.length);
+      var ppp = arr4.pop();
+      var sss = arr4.shift();
+      console.log(arr4, arr4.length, ppp, sss);
+    </script>
+  </body>
+</html>

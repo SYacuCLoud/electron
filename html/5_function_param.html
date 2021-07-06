@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      function params() {
+        for (let i = 0; i < arguments.length; i++) {
+          console.log(arguments[i]);
+        }
+      }
+      function defaultParam(a = 10) {
+        console.log(a);
+      }
+      var sq = (x) => console.log(x * x);
+
+      params(1, 2, 3, "x", "y", "z");
+      defaultParam(100);
+      defaultParam();
+      sq(5);
+    </script>
+  </body>
+</html>
