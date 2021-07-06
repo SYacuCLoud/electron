@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <p id="my-text"></p>
+    <div id="my-div"></div>
+    <div id="my-div2"><h2 id="remove">World!</h2></div>
+    <script>
+      var elem = document.getElementById("my-text");
+      elem.innerHTML = "asdfasdf";
+
+      var newP = document.createElement("h1");
+      newP.innerHTML = "Hello";
+      var myDiv = document.getElementById("my-div");
+      myDiv.appendChild(newP);
+
+      //   document
+      //     .getElementById("my-div2")
+      //     .removeChild(document.getElementById("remove"));
+      document.getElementById("remove").style.display = "none";
+    </script>
+  </body>
+</html>

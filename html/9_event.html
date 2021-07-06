@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <div>
+      <input id="user-id" type="number" />
+      <button id="my-button">click me</button>
+    </div>
+    <div id="result"></div>
+    <script>
+      document.getElementById("my-button").addEventListener("click", (e) => {
+        let id = document.getElementById("user-id").value;
+        let result = document.getElementById("result");
+
+        fetch("https://reqres.in/api/users/" + id)
+          .then((resp) => resp.text())
+          .then((text) => (result.innerHTML = text))
+          .catch((excep) => console.log(excep));
+      });
+    </script>
+  </body>
+</html>

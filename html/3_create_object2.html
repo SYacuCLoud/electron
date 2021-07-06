@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <script>
+      var myObj = {
+        name: "도우너",
+        age: 50,
+      };
+      console.log(myObj);
+
+      myObj.name = "둘리";
+      console.log(myObj);
+
+      changeAge(myObj);
+      console.log(myObj);
+
+      function changeAge(o) {
+        o.age = 22;
+      }
+    </script>
+  </body>
+</html>
